@@ -81,10 +81,6 @@ class AwesomeOverride(fw.Newt):
     def awesome_override(self):
         ...
 
-    def run(self):
-        self.awesome_override()
-        self.root.mainloop()
-
 if __name__ == "__main__":
     AwesomeOverride().run()
 ```
