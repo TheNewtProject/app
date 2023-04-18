@@ -1,9 +1,9 @@
-# IMPORTANT
+# IMPORTANT {#important}
 
 #### **The Newt Plugin API is deprecated! Please use build overrides and buildsets instead.**
 
 
-# Newt
+# Newt {#}
 
 Newt is a lightweight community-made text editor made in Python.
 
@@ -14,7 +14,7 @@ Features Include:
 - Buildsets
 
 
-## Theme Example
+## Theme Example {#theme}
 
 ```ini
 [root]
@@ -66,7 +66,7 @@ active-foreground = white
 This is a theme that can be used to customize the appearance of Newt. This theme is called AMOLED, and is bundled with the Newt standard installation.
 
 
-## Build Override Example
+## Build Override Example {#override}
 
 1. First, move to the root directory of your installation of Newt.
 
@@ -92,7 +92,7 @@ However, build overrides do nothing on their own. You will need to create a buil
 
 
 
-## Buildset Example
+## Buildset Example {#buildset}
 
 Buildsets are a compilation of build overrides that are run alongside each other.
 
