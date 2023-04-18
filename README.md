@@ -77,56 +77,52 @@ This is a theme that can be used to customize the appearance of Newt. This theme
 ```py
 from framework import newt as fw
 
-class AwesomeOverride(fw.Newt):
-    def awesome_override(self):
+class OverrideName(fw.Newt):
+    def override_name(self):
         ...
-
-if __name__ == "__main__":
-    AwesomeOverride().run()
 ```
 
-4. Instead of running `newt.py`, `main.py`, or `aiomain.py`, instead run your build override file.
-
-5. Your build override is ready!
+4. Your build override is ready!
 
 Using build overrides, you can change the entire functionality and look of Newt, without disturbing your `main.py` file or the actual application itself!
 
 Build overrides also modify the application directly, instead of running in the background. This means that build overrides have more flexibility and capibilities than a plugin does.
+
+However, build overrides do nothing on their own. You will need to create a buildset and import and run your overrides.
+
 
 
 ## Buildset Example
 
 Buildsets are a compilation of build overrides that are run alongside each other.
 
-However, build overrides require slightly more configuration to work, and if you want to use multiple build overrides, you may need to edit the overrides first.
-
 1. First, move to the root directory of your installation of Newt.
 
 2. Create a new file using `snake_case`, and give it a name with the `.py` extension.
 
-3. Inside this file, write the following boilerplate code to start a new build override, but DO NOT override the `run` function unless it is required, except for inside your buildset:
+3. Inside this file, write the following boilerplate code to start a new build override:
 
 ```py
 from framework import newt as fw
-from override1 import AwesomeOverride
-from override2 import CoolOverride
+from override1 import Override1
+from override2 import Override2
 
-class MyBuildset(AwesomeOverride, CoolOverride):
+class BuildsetName(Override1, Override2):
     def run(self):
-        self.awesome_override()
-        self.cool_override()
+        self.override_1()
+        self.override_2()
         self.root.mainloop()
 
 if __name__ == '__main__':
-    MyBuildset().run()
+    BuildsetName().run()
 ```
 
 There you go! You may need to make some modifications, but your buildset is ready!
 
 4. Run the file you created using the following command:
 
-`py YOUR_BUILDSET_FILE.py`
+`py buildset_name.py`
 
-Note that the buildset does not merge overrides. 
+Note that buildsets do not merge overrides. 
 
 If anything is shared between the overrides in the buildset, the lowest in the list will take priority, and the priority gets lower the higher you go in the list of overrides.

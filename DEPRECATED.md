@@ -1,3 +1,7 @@
+# Deprecated Documentation
+
+## **ANY DOCUMENTATION INCLUDED HERE IS DEPRECATED AND IS NOT RECOMMENDED FOR PRODUCTION.**
+
 ## Plugin Example
 
 ### Synchronous
