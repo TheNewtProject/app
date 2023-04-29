@@ -1,8 +1,5 @@
 import asyncio
-
-class NewtDeprecationWarning(DeprecationWarning):
-    pass
-
+from newt import NewtDeprecationWarning
 
 class Plugin:
     _registry = []
@@ -10,11 +7,11 @@ class Plugin:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         cls.register()
-        raise DeprecationWarning("framework.plugins.Plugin is deprecated, but will remain usable in future versions.")
+        raise NewtDeprecationWarning("Plugin")
 
     def __init__(self):
-        raise DeprecationWarning("framework.plugins.Plugin is deprecated, but will remain usable in future versions.")
-
+        raise NewtDeprecationWarning("Plugin")
+    
     def run(self, app):
         raise NotImplementedError
 
@@ -35,10 +32,10 @@ class AsyncPlugin:
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         cls.register()
-        raise DeprecationWarning("framework.plugins.AsyncPlugin is deprecated, but will remain usable in future versions.")
+        raise NewtDeprecationWarning("AsyncPlugin")
 
     def __init__(self):
-        raise DeprecationWarning("framework.plugins.AsyncPlugin is deprecated, but will remain usable in future versions.")
+        raise NewtDeprecationWarning("AsyncPlugin")
 
     async def run(self, app):
         raise NotImplementedError

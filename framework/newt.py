@@ -8,6 +8,11 @@ import traceback
 from contextlib import redirect_stdout
 from io import StringIO
 
+class NewtDeprecationWarning(DeprecationWarning):
+    def __init__(self, item):
+        self.item = item
+        super().__init__(f"\"{item}\" is deprecated and is not recommended for use in production")
+
 config = configparser.ConfigParser()
 themecfg = configparser.ConfigParser()
 
