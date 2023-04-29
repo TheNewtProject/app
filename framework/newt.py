@@ -7,6 +7,12 @@ from tkinter import scrolledtext
 import traceback
 from contextlib import redirect_stdout
 from io import StringIO
+import pygments
+from pygments import highlight
+from pygments import lex
+from pygments.lexers import PythonLexer
+from pygments.formatters import *
+from pygments.token import Token
 
 class NewtDeprecationWarning(DeprecationWarning):
     def __init__(self, item):
@@ -61,7 +67,7 @@ class Newt:
         self.root.configure(bg=f"{themecfg['root']['background']}")  # set background color
         self.root.option_add("*foreground", f"{themecfg['root']['foreground']}")  # set foreground color
         self.root.iconbitmap(icon_path) # set icon
-
+        
         # configure text widget
         self.text = tk.Text(self.root, bg=f"{themecfg['text']['background']}", fg=f"{themecfg['text']['foreground']}", insertbackground=f"{themecfg['text']['insert-background']}", wrap=f"{themecfg['text']['wrap']}", font=(f"{themecfg['text']['font-family']}", int(themecfg['text']['font-size'])), tabstyle="wordprocessor")
 
